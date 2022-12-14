@@ -13,6 +13,7 @@ if uploaded_file is not None:
     weights = dataframe.Weight.tolist()
     names = dataframe.Name.tolist()
 
+st.write("""Total Weight:""",sum(weights))
 
 capacities = st.number_input('Insert Capacity (Capacity Should be smaller than sum of Weights')
 st.write('The current Capacity is ', capacities)
