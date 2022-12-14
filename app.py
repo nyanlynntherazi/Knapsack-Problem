@@ -15,7 +15,8 @@ if uploaded_file is not None:
 
     st.metric(label="Total Weight in Dataset",value =sum(weights))
 
-capacities = st.number_input('Insert Capacity (Capacity Should be smaller than sum of Weights')
+capacities = st.number_input("""Insert Capacity 
+    (Capacity Should be smaller than Total Weights in Dataset""")
 st.write('The current Capacity is ', capacities)
 
 def print_item_weight(packed_items,packed_weights,name):
