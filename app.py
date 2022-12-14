@@ -13,14 +13,14 @@ if uploaded_file is not None:
     weights = dataframe.Weight.tolist()
     names = dataframe.Name.tolist()
 
-    st.write("""Total Weight:""",sum(weights))
+    st.metric(label="Total Weight in Dataset",value =sum(weights))
 
 capacities = st.number_input('Insert Capacity (Capacity Should be smaller than sum of Weights')
 st.write('The current Capacity is ', capacities)
 
 def print_item_weight(packed_items,packed_weights,name):
     for i,j in zip(packed_items,packed_weights):
-        st.write(name[i],j)
+        st.write(i,name[i],j)
         
 def knapsack(values, weights, capacities, name):
     # Create the solver.
@@ -44,6 +44,7 @@ def knapsack(values, weights, capacities, name):
             packed_items.append(i)
             packed_weights.append(weights[0][i])
             total_weight += weights[0][i]
+
     st.write('Total weight:', total_weight)
     print_item_weight(packed_items,packed_weights,name)
 
