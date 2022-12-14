@@ -3,10 +3,6 @@ import pandas as pd
 from ortools.algorithms import pywrapknapsack_solver
 
 
-capacities = st.number_input('Insert Capacity')
-st.write('The current number is ', capacities)
-
-
 uploaded_file = st.file_uploader("Choose a file")
 if uploaded_file is not None:
     # Can be used wherever a "file-like" object is accepted:
@@ -17,6 +13,9 @@ if uploaded_file is not None:
     weights = dataframe.Weight.tolist()
     names = dataframe.Name.tolist()
 
+
+capacities = st.number_input('Insert Capacity (Capacity Should be smaller than sum of Weights')
+st.write('The current Capacity is ', capacities)
 
 def print_item_weight(packed_items,packed_weights,name):
     for i,j in zip(packed_items,packed_weights):
